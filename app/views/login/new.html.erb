@@ -1,0 +1,13 @@
+<%= render 'shared/title', title: 'Log-in' %>
+
+<%= form_for :login, url: login_path do |f| %>
+  <div class="form-group">
+    <%= f.label :username %>
+    <%= f.text_field :username, class: "form-control", autofocus: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="text-right"><%= f.submit "Login", class: "btn btn-default" %></div>
+<% end %>

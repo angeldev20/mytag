@@ -1,0 +1,18 @@
+<%= render 'shared/title', title: @user.username %>
+
+<p class="text-right">
+  <% if correct_user?(@user) %>
+    <%= link_to 'edit user', edit_user_path(@user), class: "btn btn-default" %>
+  <% end %>
+  <%= link_to 'back to all posts', posts_path, class: "btn btn-default" %>
+</p>
+
+<h4><%= pluralize(@user.comments.count, 'user comment') %></h4>
+<div class="comment-blocks">
+  <%= render @user.comments if @user.comments.any? %>
+</div>
+
+<h4><%= pluralize(@user.posts.count, 'user post') %></h4>
+<div class="post-blocks">
+  <%= render @user.posts if @user.posts.any? %>
+</div>
